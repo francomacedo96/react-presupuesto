@@ -8,7 +8,11 @@ const ListadoGastos = ({ gastos }) => {
             <h2> {gastos.length ? "Gastos" : "No hay gastos"} </h2>
 
             {gastos.map(gasto => (
-                <Gasto/>
+                <Gasto
+                    id={gasto.id}
+                    gasto={gasto}
+                
+                />
             ))}
 
         </div>
