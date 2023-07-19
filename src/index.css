@@ -386,16 +386,22 @@ body .modal {
 }
 
 /*** SWIPE LIST OVERRIDES **/
-.swipe-action__leading {
-    background-color: var(--azul);
+.swipeable-list-item__leading-actions {
+    background-color: #259f48;
     color: var(--blanco);
-    margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
+
+    height: 88%;
+    border-radius: 2.5rem 0 0 2.5rem;
 }
 
-.swipe-action__trailing {
-    background-color: #db2777;
-    margin-bottom: 2rem;
+.swipeable-list-item__trailing-actions {
+    background-color: #dc2d22 !important;
+    margin-bottom: 2rem !important;
     color: var(--blanco);
+    
+    height: 88%;
+    border-radius:  0 2.5rem 2.5rem 0;
 }
 
 .swipeable-list .swipe-action {
@@ -403,5 +409,6 @@ body .modal {
     justify-content: center;
     align-items: center;
     font-size: 2.4rem;
-    text-align: right;
+    text-align: center;
 }
+
