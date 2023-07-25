@@ -55,6 +55,7 @@ function App() {
       gasto.id = generarID();
       gasto.fecha = Date.now();
       setGastos([...gastos, gasto])
+      setGastoEditar({})
     }
 
     setAnimarModal(false)
@@ -104,6 +105,7 @@ function App() {
           setAnimarModal={setAnimarModal}
           guardarGasto={guardarGasto}
           gastoEditar={gastoEditar}
+          setGastoEditar={setGastoEditar}
         />
       }
 

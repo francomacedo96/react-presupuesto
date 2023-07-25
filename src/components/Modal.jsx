@@ -2,7 +2,7 @@ import Cerrar from "../img/cerrar.svg"
 import { useState, useEffect } from "react"
 import Mensaje from "./Mensaje"
 
-const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar}) => {
+const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar, setGastoEditar}) => {
 
     const [nombre, setNombre] = useState("")
     const [valor, setValor] = useState("")
@@ -25,7 +25,7 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar
 
     const ocultarModal = () => {
         setAnimarModal(false)
-
+        setGastoEditar({})
         setTimeout(() => {
             setModal(false)
         }, 500);
