@@ -13,14 +13,10 @@ function App() {
   const [modal, setModal] = useState(false)
   const [animarModal, setAnimarModal] = useState(false)
 
-  const [gastos, setGastos] = useState(
-    localStorage.getItem("gastos") ? JSON.parse(localStorage.getItem("gastos")) : []
-  
-  )
-
-
+  const [gastos, setGastos] = useState(localStorage.getItem("gastos") ? JSON.parse(localStorage.getItem("gastos")) : [])
   const [gastoEditar, setGastoEditar] = useState({})
-
+  const [filtro, setFiltro] = useState("")
+  const [gastosFiltrados, setGastosFiltrados] = useState("")
 
   useEffect(()=>{
     if(Object.keys(gastoEditar).length > 0) {
@@ -53,6 +49,13 @@ function App() {
     
   }, [gastos])
   
+  useEffect(() => {
+    if(filtro) {
+      const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro)
+
+      setGastosFiltrados(gastosFiltrados)
+    }
+  }, [filtro])
   
 
 
@@ -107,12 +110,15 @@ function App() {
         <>
           <main>
             <Filtros
-
+              filtro={filtro}
+              setFiltro={setFiltro}
             />
             <ListadoGastos
               gastos={gastos}
               setGastoEditar={setGastoEditar}
               eliminarGasto={eliminarGasto}
+              filtro={filtro}
+              gastosFiltrados={gastosFiltrados}
             />
           </main>
 
